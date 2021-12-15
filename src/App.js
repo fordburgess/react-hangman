@@ -3,46 +3,62 @@ import "./App.css";
 import Figure from "./components/Figure";
 import WrongLetters from "./components/WrongLetters";
 import CorrectLetters from "./components/CorrectLetters";
+import Popup from "./components/Popup";
+import { checkWin } from "./helpers";
+
+const words = ["Vienna", "Pakistan", "Antarctica", "Tennessee", "Luxembourg"];
+const word = words[Math.floor(Math.random() * words.length)];
+const selectedWord = word.toUpperCase();
 
 function App() {
-  const words = ["Vienna", "Pakistan", "Antarctica", "Tennessee", "Luxembourg"];
-  const selectedWord = words[Math.floor(Math.random() * words.length)];
-
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
+  const [playable, setPlayable] = useState(true);
+  const errors = wrongLetters.length;
 
   useEffect(() => {
     const eventHandler = (e) => {
-      const { keycode, key } = e;
-      if (keycode >= 65 && keycode < 79) {
+      var { key, keyCode } = e;
+      if (playable === true && keyCode >= 65 && keyCode <= 90) {
+        key = key.toUpperCase();
         if (selectedWord.includes(key)) {
-          if (!correctLetters.includes(key))
-            setCorrectLetters(...correctLetters, key);
+          if (!correctLetters.includes(key)) {
+            setCorrectLetters((currentLetters) => [...currentLetters, key]);
+            console.log(correctLetters);
+          }
         } else {
           if (!selectedWord.includes(key)) {
             if (!wrongLetters.includes(key)) {
-              setWrongLetters(...wrongLetters, key);
+              setWrongLetters((currentLetters) => [...currentLetters, key]);
             }
           } else {
-            console.log("You've already tried this letter");
+            console.log("You've already tried this letter.");
           }
         }
       }
     };
     window.addEventListener("keydown", eventHandler);
-    return window.removeEventListener("keydown", eventHandler);
-  }, [correctLetters, wrongLetters, selectedWord]);
+    return () => window.removeEventListener("keydown", eventHandler);
+  }, [correctLetters, wrongLetters]);
 
   return (
     <div className="game-container">
       <h1 className="header">Geography Hangman</h1>
       <div className="middle-container">
-        <Figure />
-        <WrongLetters />
+        <div className="middle-sub-container">
+          <Figure errors={errors} />
+          <WrongLetters wrongLetters={wrongLetters} />
+        </div>
+        <CorrectLetters
+          selectedWord={selectedWord}
+          correctLetters={correctLetters}
+        />
       </div>
-      <CorrectLetters
-        selectedWord={selectedWord}
+      <Popup
         correctLetters={correctLetters}
+        errors={errors}
+        selectedWord={selectedWord}
+        setPlayable={setPlayable}
       />
     </div>
   );
