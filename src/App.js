@@ -6,7 +6,7 @@ import CorrectLetters from "./components/CorrectLetters";
 import Popup from "./components/Popup";
 import { checkWin } from "./helpers";
 
-const words = ["Vienna", "Pakistan", "Antarctica", "Tennessee", "Luxembourg"];
+const words = ["pakistan", "abu dhabi", "edinburgh", "washington"];
 const word = words[Math.floor(Math.random() * words.length)];
 const selectedWord = word.toUpperCase();
 
@@ -39,7 +39,7 @@ function App() {
     };
     window.addEventListener("keydown", eventHandler);
     return () => window.removeEventListener("keydown", eventHandler);
-  }, [correctLetters, wrongLetters]);
+  }, [correctLetters, wrongLetters, playable]);
 
   return (
     <div className="game-container">
