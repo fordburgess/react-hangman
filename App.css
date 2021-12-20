@@ -1,0 +1,102 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: tan;
+  color: rgb(90, 60, 20);
+  padding: 80px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.theme-toggle {
+  position: absolute;
+  top: 70px;
+  right: 70px;
+  padding: 8px 20px;
+  background-color: rgb(90, 60, 20);
+  color: tan;
+  border: none;
+}
+.theme-toggle:active {
+  transform: translateX(1px) translateY(1px);
+}
+.game-container {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 150px;
+}
+.middle-container {
+  /* display: flex;
+  justify-content: space-between; */
+  padding-right: 20px;
+  height: 50vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.middle-sub-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.figure-container {
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+.figure {
+  stroke: rgb(90, 60, 20);
+  stroke-width: 10px;
+  stroke-linecap: round;
+  fill: transparent;
+}
+.word {
+  display: flex;
+  font-size: 30px;
+  height: 75px;
+}
+.letter {
+  border-bottom: solid 3px #aa8450;
+  margin: 10px;
+  text-align: center;
+  width: 35px;
+}
+.popup-container {
+  background-color: rgb(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.popup {
+  height: 300px;
+  width: 600px;
+  padding: 30px;
+  font-size: 30px;
+  background-color: rgb(90, 60, 20);
+  color: tan;
+  border-radius: 2px;
+  box-shadow: rgba(99, 99, 99, 0.8) 0px 2px 8px 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.popup button {
+  padding: 20px 42px;
+  font-size: 20px;
+  background-color: tan;
+  color: rgb(90, 60, 20);
+  border: none;
+  cursor: pointer;
+}
+.popup button:active {
+  transform: translateX(1px) translateY(1px);
+}
