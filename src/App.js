@@ -18,7 +18,8 @@ function App() {
   const [darkTheme, setDarkTheme] = useState(false);
   const themeStyles = {
     backgroundColor: darkTheme ? "rgb(90, 60, 20)" : "tan",
-    color: darkTheme ? "tan" : "rgb(90, 60, 20",
+    color: darkTheme ? "tan" : "rgb(90, 60, 20)",
+    stroke: darkTheme ? "tan" : "rgb(90, 60, 20)",
   };
   //
   const errors = wrongLetters.length;
@@ -56,8 +57,15 @@ function App() {
 
   return (
     <ThemeContext.Provider value={themeStyles}>
-      <div className="body">
-        <button className="theme-toggle" onClick={toggleTheme}>
+      <div className="body" style={themeStyles}>
+        <button
+          className="theme-toggle"
+          onClick={toggleTheme}
+          style={{
+            background: darkTheme ? "tan" : "rgb(90, 60, 20)",
+            color: darkTheme ? "rgb(90, 60, 20)" : "tan",
+          }}
+        >
           Change Theme
         </button>
         <div className="game-container">
