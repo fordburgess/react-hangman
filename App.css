@@ -59,7 +59,7 @@
   height: 75px;
 }
 .letter {
-  border-bottom: solid 3px #aa8450;
+  /* border-bottom: solid 3px #aa8450; */
   margin: 10px;
   text-align: center;
   width: 35px;
