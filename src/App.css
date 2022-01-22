@@ -48,7 +48,6 @@
   left: 10px;
 }
 .figure {
-  stroke: rgb(90, 60, 20);
   stroke-width: 10px;
   stroke-linecap: round;
   fill: transparent;
@@ -59,7 +58,6 @@
   height: 75px;
 }
 .letter {
-  /* border-bottom: solid 3px #aa8450; */
   margin: 10px;
   text-align: center;
   width: 35px;
