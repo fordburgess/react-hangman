@@ -7,7 +7,7 @@ const Figure = ({ errors }) => {
 
   return (
     <div className="figure-container">
-      <svg height="250px" width="200px" className="figure" style={style}>
+      <svg height="250px" width="200px" className="figure" style={{ stroke: darkTheme ? "tan" : "rgb(90, 60, 20)"}}>
         {/* Post */}
         <line x1="50" y1="10" x2="50" y2="240" />
         <line x1="50" y1="10" x2="160" y2="10" />
