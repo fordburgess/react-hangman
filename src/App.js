@@ -13,10 +13,10 @@ export const ThemeContext = React.createContext();
 
 function App() {
   //
-  useEffect(() => {
-    fetch("http://battuta.medunes.net/api/country/all/?key=76ebe15227b3b9e9c698a4295e9a58a1")
-    .then(result => result.json()).then(data => console.log(data))
-  }, [])
+//   useEffect(() => {
+//     fetch("http://battuta.medunes.net/api/country/all/?key=76ebe15227b3b9e9c698a4295e9a58a1")
+//     .then(result => result.json()).then(data => console.log(data))
+//   }, [])
   //
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
@@ -31,13 +31,13 @@ function App() {
 
   const errors = wrongLetters.length;
   useEffect(() => {
-    /* ACTUAL FUNCTIONALITY */
-    // selectedWord.split('').forEach(character => {
-    //   if (!/[A-Z]/.test(character)) {
-    //     setCorrectLetters((currentLetters) => [...currentLetters, character])
-    //     console.log(correctLetters)
-    //   }
-    // })
+    
+    selectedWord.split('').forEach(character => {
+      if (!/[A-Z]/.test(character)) {
+        setCorrectLetters((currentLetters) => [...currentLetters, character])
+        console.log(correctLetters)
+      }
+    })
 
     const eventHandler = (e) => {
       var { key, keyCode } = e;
