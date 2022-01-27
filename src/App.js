@@ -70,7 +70,7 @@ function App() {
   useEffect(() => {
     window.addEventListener('keydown', eventHandler)
     return () => window.removeEventListener('keydown', eventHandler)
-  }, [correctLetters, eventHandler, playable, wrongLetters])
+  }, [eventHandler])
 
   return (
     <ThemeContext.Provider value={themeStyles}>
