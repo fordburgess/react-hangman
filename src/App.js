@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import './App.css'
 import Figure from './components/Figure'
 import WrongLetters from './components/WrongLetters'
@@ -38,7 +38,7 @@ function App() {
         setCorrectLetters(currentLetters => [...currentLetters, character])
       }
     })
-  }, [wrongLetters, playable])
+  }, [])
 
   function toggleTheme() {
     setDarkTheme(prevDarkTheme => !prevDarkTheme)
@@ -46,7 +46,7 @@ function App() {
 
   const eventHandler = useCallback(
     e => {
-      var {key, keyCode} = e
+      var { key, keyCode } = e
       if (playable === true && keyCode >= 65 && keyCode <= 90) {
         key = key.toUpperCase()
         if (selectedWord.includes(key)) {
