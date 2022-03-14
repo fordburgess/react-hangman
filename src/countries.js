@@ -191,7 +191,6 @@ export const COUNTRIES = [
   'Solomon Islands',
   'Somalia',
   'South Africa',
-  'South Georgia And Sandwich Isl.',
   'Spain',
   'Sri Lanka',
   'Sudan',
