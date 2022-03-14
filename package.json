@@ -1,6 +1,5 @@
 {
   "name": "react-hangman",
-  "homepage": "react-hangman-delta.vercel.app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
